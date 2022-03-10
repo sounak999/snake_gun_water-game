@@ -1,15 +1,17 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-int snakeWaterGun(char you, char comp){
+int snakeWaterGun(char you, char comp)
+{
     // returns 1 if you win, -1 if you lose and 0 if draw
     // Condition for draw
     // Cases covered:
     // ss
     // gg
     // ww
-    if(you == comp){
+    if (you == comp)
+    {
         return 0;
     }
 
@@ -17,59 +19,71 @@ int snakeWaterGun(char you, char comp){
     // Cases covered:
     // sg
     // gs
-    // sw 
+    // sw
     // ws
     // gw
     // wg
-    
 
-    if(you=='s' && comp=='g'){
+    if (you == 's' && comp == 'g')
+    {
         return -1;
     }
-    else if(you=='g' && comp=='s'){
+    else if (you == 'g' && comp == 's')
+    {
         return 1;
     }
 
-    if(you=='s' && comp=='w'){
+    if (you == 's' && comp == 'w')
+    {
         return 1;
     }
-    else if(you=='w' && comp=='s'){
+    else if (you == 'w' && comp == 's')
+    {
         return -1;
     }
 
-    if(you=='g' && comp=='w'){
+    if (you == 'g' && comp == 'w')
+    {
         return -1;
     }
-    else if(you=='w' && comp=='g'){
+    else if (you == 'w' && comp == 'g')
+    {
         return 1;
     }
-
 }
-int main(){
+
+int main()
+{
     char you, comp;
     srand(time(0));
-    int number = rand()%100 + 1;
+    int number = rand() % 100 + 1;
 
-    if(number<33){
+    if (number < 33)
+    {
         comp = 's';
     }
-    else if(number>33 && number<66){
-        comp='w';
+    else if (number > 33 && number < 66)
+    {
+        comp = 'w';
     }
-    else{
-        comp='g';
+    else
+    {
+        comp = 'g';
     }
-    
+
     printf("Enter 's' for snake, 'w' for water and 'g' for gun\n");
     scanf("%c", &you);
     int result = snakeWaterGun(you, comp);
-    if(result ==0){
+    if (result == 0)
+    {
         printf("\nGame draw!\n");
     }
-    else if(result==1){
+    else if (result == 1)
+    {
         printf("\nYou win!\n");
     }
-    else{
+    else
+    {
         printf("\nYou Lose!\n");
     }
     printf("\nYou chose %c and computer chose %c. ", you, comp);
